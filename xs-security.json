@@ -16,5 +16,20 @@
         "uaa.user"
       ]
     }
-  ]
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.us10-001.hana.ondemand.com/**",
+      "https://*.eu10.hana.ondemand.com/**",
+      "http://localhost:5000/**",
+      "http://localhost:5001/**",
+      "https://oauth.pstmn.io/v1/callback"
+    ],
+    "system-attributes": [
+      "ias-corporate-idp-token",
+      "ias-token",
+      "groups",
+      "rolecollections"
+    ]
+  }
 }
