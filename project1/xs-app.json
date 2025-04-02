@@ -1,6 +1,10 @@
 {
-  "welcomeFile": "/index.html",
+  "welcomeFile": "comproject1/index.html",
   "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/logout",
+    "logoutPage":"/web-pages/logout-page.html"
+  },
   "routes": [
     {
       "source": "^/resources/(.*)$",
@@ -15,10 +19,27 @@
       "destination": "ui5"
     },
     {
-      "source": "^(.*)$",
+      "source": "/user-api/currentUser$",
+      "target": "/currentUser",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "^/sap/(.*)$",
+      "target": "/sap/$1",
+      "destination": "Backend",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/web-pages/(.*)$",
       "target": "$1",
-      "service": "html5-apps-repo-rt",
+      "localDir": "static",
       "authenticationType": "xsuaa"
-    }
+    },
+    {
+      "source": "(.*)",
+      "target": "/comproject1/$1",
+      "service": "html5-apps-repo-rt"
+    }    
   ]
 }
+
